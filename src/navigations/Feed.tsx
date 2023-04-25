@@ -12,8 +12,7 @@ const FeedNavigation = () => {
             screenOptions={({ route }) => ({
                     headerShown: false,
                     tabBarStyle: {
-                        backgroundColor: '#333',
-                        paddingVertical: 10
+                        paddingVertical: 10,
                     },
                     tabBarIcon: ({ focused, color, size }) =>{
                         let iconName;
@@ -31,7 +30,7 @@ const FeedNavigation = () => {
                           // You can return any component that you like here!
                         return <Icon name={iconName} size={size} color={color} />;
                     },
-                    tabBarActiveTintColor: 'tomato',
+                    tabBarActiveTintColor: '#6DA9E4',
                     tabBarInactiveTintColor: 'gray',
                 })
             }
@@ -39,6 +38,9 @@ const FeedNavigation = () => {
             <Tab.Screen
                 name="Weekly"
                 component={Weekly}
+                options={{
+                    tabBarBadge: 1
+                }}
             />
             <Tab.Screen
                 name="SeparateTasks"
