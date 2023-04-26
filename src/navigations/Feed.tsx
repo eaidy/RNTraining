@@ -39,7 +39,7 @@ const FeedNavigation = () => {
                 name="Weekly"
                 component={Weekly}
                 options={{
-                    tabBarBadge: 1
+                    // tabBarBadge: 1
                 }}
             />
             <Tab.Screen
