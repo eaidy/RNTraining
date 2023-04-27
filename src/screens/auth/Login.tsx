@@ -118,8 +118,10 @@ const Login = ({ navigation }: any) => {
                     <View>
                         <Button 
                             title="Login"
-                            onPress={() => {
-                                if(loginRequest(userInfo)){
+                            onPress={ async () => {
+                                const response: any = await loginRequest(userInfo);
+
+                                if(response){
                                     trigger('notificationSuccess', {
                                         enableVibrateFallback: true,
                                         ignoreAndroidSystemSettings: false,

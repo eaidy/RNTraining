@@ -10,5 +10,5 @@ export type ILogin = {
 // INTERFACES
 
 export interface ILoginRequest {
-    ({}: ILogin): ResponseModel;
+    (Object: ILogin): ResponseModel;
 }

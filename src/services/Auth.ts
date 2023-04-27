@@ -1,10 +1,20 @@
 import { ILoginRequest, ILogin } from '../abstract/IAuth'
+import axios from 'axios';
 
+export async function loginRequest<ILoginRequest>({username, password}: ILogin) {
+    const results = await axios.post('http://192.168.0.10:5001/Customers/LoginHandler',{
+            username: username,
+            password: password
+        })
+        .then((response: any) => {
+            return response.data
+        })
+        .catch((error: any) => {
+            console.log(error);
+        });
 
-export function loginRequest<ILoginRequest>({username, password}: ILogin) {
-    if(username === "atacano"){
-        return password === "12151215" ? true : false;
-    } else {
-        return false;
-    }
+    console.log(results);
+
+    return results;
+    
 }
