@@ -121,7 +121,7 @@ const Login = ({ navigation }: any) => {
                             responseValid &&
                             (
                                 <Text style={styles.validationFeedbackText}>
-                                    Some prblms...
+                                    Informations are not valid!
                                 </Text>
                             )
                         }
