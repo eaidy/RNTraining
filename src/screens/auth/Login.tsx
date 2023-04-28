@@ -22,6 +22,7 @@ const Login = ({ navigation }: any) => {
         password: ''
     });
     const [dimensions, setDimensions] = useState(screenDimensions);
+    const [responseValid, setResponseValid] = useState(false);
     
     useEffect(() => {
         const subscription = Dimensions.addEventListener(
@@ -115,6 +116,16 @@ const Login = ({ navigation }: any) => {
                         })}
                         
                     />
+                    <View style={styles.validationFeedback}>
+                        {
+                            responseValid &&
+                            (
+                                <Text style={styles.validationFeedbackText}>
+                                    Some prblms...
+                                </Text>
+                            )
+                        }
+                    </View>
                     <View>
                         <Button 
                             title="Login"
@@ -135,6 +146,8 @@ const Login = ({ navigation }: any) => {
                                         enableVibrateFallback: true,
                                         ignoreAndroidSystemSettings: false,
                                     })
+                                    setResponseValid(true);
+                                    setTimeout(() => setResponseValid(false), 2000);
                                 }
                             }}
                         />
@@ -173,6 +186,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         borderColor: 'blue'
+    },
+    validationFeedback: {
+        marginVertical: 5,
+        height: 18,
+    },
+    validationFeedbackText: {
+        fontSize: 14,
+        fontFamily: 'helveticaneue',
+        fontWeight: '300',
+        color: '#f52',
+        textAlign: 'center'
     }
 })
  
