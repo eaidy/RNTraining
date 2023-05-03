@@ -1,10 +1,10 @@
-import { ILoginRequest, ILogin, IUserDbModel } from '../abstract/IAuth';
+import { ILoginRequest, ILogin, IUserDbModel, ISignUpPostBody } from '../abstract/IAuth';
 // import { API_BASE_URL } from '../../evnconfig';
 import axios from 'axios';
 
-export async function loginRequest<IUserDbModel>(loginInfo: ILogin): Promise<IUserDbModel | null> {
+export const loginRequest: ILoginRequest = async (loginInfo: ILogin): Promise<IUserDbModel | null> => {
     try {
-        const response = await axios.post('http://192.168.0.10:5001/Users/LoginHandler',{
+        const response = await axios.post('http://192.168.1.93:5001/Users/LoginHandler',{
             ...loginInfo
         });
         const data: IUserDbModel = response.data;
@@ -17,9 +17,9 @@ export async function loginRequest<IUserDbModel>(loginInfo: ILogin): Promise<IUs
     }
 }
 
-export async function signUpRequest<ISignUpRequest>(signUpInfo: ISignUpRequest | null) {
+export const signUpRequest = async (signUpInfo: ISignUpPostBody): Promise<IUserDbModel | null> => {
     try {
-        const response = await axios.post('http://192.168.0.10:5001/Users/CreateCustomer',{
+        const response = await axios.post('http://192.168.1.93:5001/Users/CreateCustomer',{
             ...signUpInfo
         });
 

@@ -10,7 +10,6 @@ import {
     Keyboard
 } from 'react-native'
 import { signUpRequest } from '../../services/Auth'
-import { loginRequest } from '../../services/Auth'
 import { CommonActions } from '@react-navigation/native';
 import { trigger } from "react-native-haptic-feedback";
 

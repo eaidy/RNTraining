@@ -1,18 +1,8 @@
-// MODELS
+// AUTH MODELS (RELATIVE TO BACKEND MODELS)
 export type ILogin = {
     username: string;
     password: string;
 }
-
-export type ISignUpInfo = {
-    firstname: string;
-    lastname: string;
-    birthday: Date;
-    phone: string;
-    username: string;
-    password: string;
-}
-
 export type IUserDbModel = {
     id: number;
     firstname: string;
@@ -22,13 +12,13 @@ export type IUserDbModel = {
     username: string;
     password: string;
 };
-
-// INTERFACES
-
-export interface ILoginRequest {
-    (Object: ILogin): IUserDbModel;
+export type ISignUpPostBody = {
+    firstname: string;
+    lastname: string;
+    birthday: Date;
+    phone: string;
+    username: string;
+    password: string;
 }
-
-export interface ISignUpRequest {
-    (Object: ISignUpInfo): IUserDbModel;
-}
+export type ILoginRequest  = (Object: ILogin) => Promise<IUserDbModel | null>;
+export type ISignUpRequest = (Object: ISignUpPostBody) => Promise<IUserDbModel>;
