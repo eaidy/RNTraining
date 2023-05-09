@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const loginRequest: ILoginRequest = async (loginInfo: ILogin): Promise<IUserDbModel | null> => {
     try {
-        const response = await axios.post('http://192.168.1.93:5001/Users/LoginHandler',{
+        const response = await axios.post('http://192.168.0.10:5001/Users/LoginHandler',{
             ...loginInfo
         });
         const data: IUserDbModel = response.data;
@@ -19,7 +19,7 @@ export const loginRequest: ILoginRequest = async (loginInfo: ILogin): Promise<IU
 
 export const signUpRequest = async (signUpInfo: ISignUpPostBody): Promise<IUserDbModel | null> => {
     try {
-        const response = await axios.post('http://192.168.1.93:5001/Users/CreateCustomer',{
+        const response = await axios.post('http://192.168.0.10:5001/Users/CreateCustomer',{
             ...signUpInfo
         });
 
